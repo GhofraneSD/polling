@@ -1,0 +1,17 @@
+::ng-deep .mat-radio-outer-circle {
+  border-color: royalblue;
+}
+::ng-deep mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: royalblue !important;
+}
+::ng-deep
+  .mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-persistent-ripple {
+  background-color: royalblue !important;
+}
+
+::ng-deep
+  .mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: royalblue !important;
+}

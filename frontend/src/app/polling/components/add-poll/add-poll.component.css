@@ -1,0 +1,12 @@
+::ng-deep .mat-datepicker-toggle > button {
+  bottom: 12px;
+  left: 10px;
+}
+
+::ng-deep .mat-datepicker-toggle > button {
+  bottom: 12px;
+}
+
+::ng-deep .mat-form-field-infix  {
+    height: 50px;
+}

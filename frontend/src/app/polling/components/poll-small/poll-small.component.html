@@ -1,0 +1,71 @@
+<mat-card class="example-card m-1 pt-4 px-4">
+  <mat-card-header class="mb-4">
+    <div mat-card-avatar class="example-header-image mx-2">
+      <img
+        ngxGravatar
+        [email]="'poll.createdBy.username'"
+        style="width: 55px !important; border-radius: 50%"
+        src="assets/avatar.jpg"
+      />
+    </div>
+    <mat-card-title
+      ><a
+        class="text-reset"
+        [routerLink]="['/profile/', poll?.createdBy?.username]"
+        >{{ poll?.createdBy?.name}}</a
+      >
+      <span class="text-muted" style="font-size: medium">
+        @{{poll?.createdBy?.username}}</span
+      >
+    </mat-card-title>
+    <mat-card-subtitle
+      class="my-1"
+      >{{ poll.creationDateTime | dateAgo}}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <p class="m-3" [innerHTML]="poll.question"></p>
+    <mat-list class="w-75 mx-auto" role="list">
+      <mat-list-item
+        role="listitem"
+        class="btn bg-light shadow-sm my-2"
+        color="primary"
+        *ngFor="let option of poll.choices; let i = index"
+        (click)="vote(poll.id, option.id)"
+        [disabled]="poll.selectedChoice != undefined"
+      >
+        <span class="mx-auto">{{ option.text }}</span>
+        <mat-radio-button
+          [checked]="option.id == poll.selectedChoice"
+        ></mat-radio-button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions class="text-center mt-2 mb-1 mx-auto">
+    <mat-divider class="mx-4 my-2"></mat-divider>
+    <span *ngIf="poll.expired"
+      ><mat-icon class="position-relative text-danger" style="top: 6px"
+        >info</mat-icon
+      >
+      Poll Expired
+    </span>
+    <span *ngIf="!poll.expired"
+      ><mat-icon class="position-relative text-primary" style="top: 6px"
+        >timelapse</mat-icon
+      >
+      Poll Expire at {{poll.expirationDateTime | date}}</span
+    >
+    <span class="text-muted mx-5"
+      ><mat-icon class="position-relative" style="top: 6px">
+        person_pin</mat-icon
+      >
+      {{poll.totalVotes}} Votes</span
+    >
+    <a [routerLink]="['/poll/', poll?.id]">
+    <span class="text-muted mx-5">
+        <mat-icon class="position-relative" style="top: 6px">remove_red_eye</mat-icon>
+      See More</span></a>
+  </mat-card-actions>
+  <mat-card-footer> </mat-card-footer>
+</mat-card>
+<br>

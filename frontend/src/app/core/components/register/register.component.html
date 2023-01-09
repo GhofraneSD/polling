@@ -1,0 +1,58 @@
+<div class="w-100 h-100 my-auto mx-0 bg-auth">
+  <div class="row h-100">
+    <div class="col-lg-4 mx-auto align-self-center">
+
+      <div class="card shadow rounded border-0">
+        <mat-card-header class="text-center my-3">
+          <img src="favicon.ico" class="mx-auto " width="150" />
+          <mat-card-title></mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="mb-2">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-signin w-75 mx-auto">
+            <mat-form-field appearance="outline" class="w-100 ">
+              <mat-label>Name</mat-label>
+              <input formControlName="name" matInput />
+              <mat-icon matSuffix>badge</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100 ">
+              <mat-label>Username</mat-label>
+              <input formControlName="username" matInput />
+              <mat-icon matSuffix>badge</mat-icon>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" class="w-100 ">
+              <mat-label>Email</mat-label>
+              <input formControlName="email" matInput />
+              <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Enter your password</mat-label>
+              <input formControlName="password" matInput type='password' />
+              <mat-icon matSuffix>key</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Repeat your password</mat-label>
+              <input formControlName="password_confirmation" matInput type='password' />
+              <mat-icon matSuffix>repeat</mat-icon>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" class="w-100 mx-auto mt-2 h5" type="submit">
+              Sign up
+            </button>
+            <mat-divider>
+            </mat-divider>
+            <p  class="text-center mx-auto mt-4">
+              You already have an account ! 
+              <a class="text-primary" [routerLink]="[ '/login' ]">login</a>
+            </p>
+          </form>
+        </mat-card-content>
+      </div>
+    </div>
+  </div>
+</div>

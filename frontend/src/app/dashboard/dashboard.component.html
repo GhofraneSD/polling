@@ -1,0 +1,49 @@
+<mat-sidenav-container class="sidenav-container ">
+  <mat-sidenav #drawer class="sidenav shadow rounded mx-2 mb-5 mt-4 px" fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="bg-white">
+      <img src="favicon.ico" height="60" width="80" alt="" />
+      <br />
+    </mat-toolbar>
+    <hr class="w-75 mx-auto text-muted" />
+    <mat-nav-list class="pl-5">
+      <a mat-list-item routerLink="/dashboard/charts">
+        <mat-icon mat-list-icon class=" icon-button-small">dashboard</mat-icon>
+        <div>Dashboard</div>
+      </a>
+      <a mat-list-item routerLink="/dashboard/users-list">
+        <mat-icon mat-list-icon class=" icon-button-small">supervisor_account</mat-icon>
+        <div> Users</div>
+      </a>
+      <a mat-list-item routerLink="/dashboard/timeline-history">
+        <mat-icon mat-list-icon class=" icon-button-small">history</mat-icon>
+        <div>History</div>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="bg-transparent d-flex ">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <!--<h5>{{ title }}</h5>-->
+      <div class="toolbar-buttons">
+        <button mat-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+        <button mat-button>
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+
+    <div class="mx-5 h-100">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<button mat-fab class="floating-buttom-clipboard" color="warning"  matBadge="4">
+  <fa-icon [icon]="faClipboard" class="fa-2x"></fa-icon>
+</button>

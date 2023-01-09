@@ -1,0 +1,7 @@
+<div class="section mx-auto col-7">
+  <div class="row mx-0 center-align">
+    <div *ngFor="let poll of polls.content" class="col s12 m4 poll-coloumn">
+      <app-poll-small [poll]="poll"></app-poll-small>
+    </div>
+  </div>
+</div>

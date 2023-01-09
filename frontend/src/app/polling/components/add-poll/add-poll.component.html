@@ -1,0 +1,66 @@
+<form
+  mat-card
+  (ngSubmit)="onSubmitPollForm(f)"
+  #f="ngForm"
+  novalidate
+  class="mx-auto col-6 s12 bg-white p-4 shadow rounded"
+>
+  <mat-card-header>
+    <mat-card-title></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div [(froalaModel)]="poll.question" [froalaEditor]>
+      Your question/title goes here
+    </div>
+    <div class=" d-inline">
+      <mat-form-field appearance="outline" class="mt-4 w-100 mb-0 ">
+        <mat-label>Choice</mat-label>
+        <input
+          matInput
+          #choice
+          name="choice"
+          type="text"
+          class="validate py-2"
+          (keyup.enter)="addChoice(choice.value); choice.value = ''"
+        />
+        <button mat-raised-button matSuffix color="primary" style="bottom: 14px;" class="py-1"
+        (click)="addChoice(choice.value); choice.value = ''">
+          <mat-icon class="text-white">add</mat-icon>
+          </button>
+      </mat-form-field>
+    </div>
+    <div *ngFor="let o of choices" class="row shadow-sm my-3 ">
+      <div class="input-field col-8 s4">
+        {{o}}
+      </div>
+      <div class="input-field col s2">
+        <a
+          class="btn-floating btn waves-effect waves-light red darken-3"
+          (click)="removeChoice(o)"
+        >
+          <i class="material-icons">remove</i>
+        </a>
+      </div>
+    </div>
+    
+    <mat-form-field appearance="fill" class="date-picker" >
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="expirationDateTime" (dateChange)="setDate($event.value)"
+      class="w-75 mb-3"   />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="expirationDateTime"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #expirationDateTime class="datepicker-button"></mat-datepicker>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions class="d-flex">
+    <button
+      mat-raised-button color="primary" class="w-50 mx-auto mt-3"
+      [disabled]="f.invalid || choices.length == 0"
+      type="submit"
+    >
+      Share
+    </button>
+  </mat-card-actions>
+</form>

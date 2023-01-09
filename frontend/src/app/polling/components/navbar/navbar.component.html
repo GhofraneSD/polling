@@ -1,0 +1,17 @@
+<mat-toolbar class="d-flex px-4 bg-white shadow-sm">
+  <a routerLink="/welcome"
+    ><img src="favicon.ico" class="mx-5 mt-4 " width="120"
+  /></a>
+  <div class="spacer d-flex"></div>
+  <a mat-button routerLink="/welcome">Home</a>
+  <a *ngIf="isLoggedIn" mat-button routerLink="/dashboard"
+    ><mat-icon>dashboard</mat-icon> Dashboard</a
+  >
+  <a *ngIf="isLoggedIn" mat-button routerLink="/add-poll"
+    ><mat-icon>add_box</mat-icon> Create poll</a
+  >
+  <a mat-button style="margin-left: auto" *ngIf="isLoggedIn" (click)="logout()"
+    ><mat-icon class="mx-1">exit_to_app</mat-icon>
+    Logout</a
+  >
+</mat-toolbar>

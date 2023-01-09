@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+  background-color: rgb(247, 247, 247);
+  margin: 0;
+}
+
+.bg-teal {
+  background-color: teal;
+}
+
+.border-teal {
+  border-top: teal;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.bg-auth {
+  background: url("/assets/images/bg.jpg") no-repeat;
+  background-size: cover;
+}
+mat-icon {
+  color: #444;
+}
+
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+::ng-deep .mat-raised-button.mat-primary {
+  background-color: #107275c4 !important;
+}
+
+.mzd-timeline-card {
+  background-color: white !important;
+}

@@ -1,0 +1,70 @@
+<div class="d-flex">
+  <div class="col-6">
+    <app-poll-small [poll]="poll"></app-poll-small>
+
+    <mat-form-field
+      class="w-100 bg-white px-3 mt-2 shadow-sm rounded-2"
+    >
+      <mat-label>Put your comment here</mat-label>
+      <input name="comment" matInput />
+      <mat-icon matSuffix>comment</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="mx-4 mt-2 col-5">
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+      <mat-tab label="Comments">
+        <mzd-timeline
+          firstContentSide="right"
+          [alternateSide]="false"
+          class="mx-auto col-lg-10 col-md-10 col-sm-12"
+        >
+          <mzd-timeline-content>
+            <mzd-icon><fa-icon [icon]="faComment"></fa-icon> </mzd-icon>
+            <div>Interesting question</div>
+          </mzd-timeline-content>
+          <mzd-icon><fa-icon>briefcase</fa-icon> </mzd-icon>
+          <mzd-timeline-content>
+            <div>  Exited to see the result</div>
+          </mzd-timeline-content>
+        </mzd-timeline>
+      </mat-tab>
+      <mat-tab label="Stats">
+        <canvas
+          baseChart
+          [chartType]="'bar'"
+          [legend]="true"
+          [datasets]="chartData"
+          [labels]="chartLabels"
+          [options]="chartOptions"
+          class="mt-4"
+        >
+        </canvas>
+        <div class="my-3">
+          <h2 class="text-center">polarArea Chart</h2>
+          <mat-divider> </mat-divider>
+        </div>
+        <canvas
+          baseChart
+          [chartType]="'polarArea'"
+          [legend]="true"
+          [datasets]="chartData"
+          [labels]="chartLabels"
+          [options]="chartOptions"
+        >
+        </canvas
+      ></mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+<!--
+<div class="row">
+  <div class="input-field col s8 offset-s2">
+    <div class="poll-container">
+      <br>
+      <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="options" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis"
+        [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+      </ngx-charts-bar-vertical>
+    </div>
+  </div>
+</div>-->
